@@ -21,4 +21,8 @@ version: 0.1.0
 # incremented each time you make changes to the application. Versions are not expected to
 # follow Semantic Versioning. They should reflect the version the application is using.
 # It is recommended to use it with quotes.
+
+# This has to be changed to reflect the image pulled.
+# There is no way to change the app version deployed via helm unless you write a `sed` script
+# that runs to replace this app version upon jenskin CI/CD pipeline firing.
 appVersion: "0.47.0"

@@ -7,9 +7,17 @@ metadata:
 spec:
   type: {{ .Values.service.type }}
   ports:
-    - port: {{ .Values.service.port }}
-      targetPort: http
+    - name: healthcheck
+      port: 13133
+      targetPort: 13133
       protocol: TCP
-      name: http
+    - name: grpc
+      port: 4317
+      targetPort: 4317
+      protocol: TCP
+    - name: http
+      port: 4318
+      targetPort: 4318
+      protocol: TCP
   selector:
     {{- include "otel-helm.selectorLabels" . | nindent 4 }}
